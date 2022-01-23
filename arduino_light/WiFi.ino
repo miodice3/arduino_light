@@ -26,7 +26,6 @@ void join_wifi_network(){
 void re_join_network_if_needed(){
     if (WiFi.status() != WL_CONNECTED) {
         int i = 0;
-    
         WiFi.mode(WIFI_STA);
         WiFi.begin(ssid, pass);
         Serial.println("Attempting reconnect to WiFi Network: " + String(ssid));
