@@ -1,3 +1,6 @@
+#include "env_variables.h"
+//#include "wifi_setup.ino"
+
 #include <WiFi.h>
 #include <WiFiAP.h>
 #include <WiFiMulti.h>
@@ -10,14 +13,10 @@
 #include <WiFiType.h>
 #include <WiFiGeneric.h>
 
-
-#include "env_variables.h"
-
 void setup() {
     Serial.begin(9600);
     Serial.println("Connecting to:");
     Serial.println(ssid);
-    Serial.println(pass);
 
     WiFi.mode(WIFI_STA);
     WiFi.begin(ssid, pass);
@@ -26,8 +25,10 @@ void setup() {
       Serial.print('.');
       delay(1000);
     }
-//    Serial.println(WiFi.localIP());
+    Serial.println(WiFi.localIP());
     delay(1000);
+//    wifi.test_function();
+    test_function();
 }
 
 void loop() {
