@@ -1,13 +1,11 @@
-#include "env_variables.h"
+
+// TODO: add an explanation of what this does
 
 void setup() {
-  // put your setup code here, to run once:
-  Serial.print(network_name);
-  delay(500);
-  Serial.print(network_password);
-  
+    Serial.begin(9600);
+    join_wifi_network();
 }
 
 void loop() {
-  // put your main code here, to run repeatedly:
+  Serial.println("main loop");
 }
