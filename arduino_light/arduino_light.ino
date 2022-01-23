@@ -8,4 +8,6 @@ void setup() {
 
 void loop() {
   Serial.println("main loop");
+  delay(500);
+  re_join_network_if_needed();
 }

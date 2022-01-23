@@ -23,4 +23,20 @@ void join_wifi_network(){
     Serial.println(WiFi.localIP());
 }
 
-// TODO: test this block of code, possibly by updating guest network password with log statements.
+void re_join_network_if_needed(){
+    if (WiFi.status() != WL_CONNECTED) {
+        int i = 0;
+        WiFi.mode(WIFI_STA);
+        WiFi.begin(ssid, pass);
+        Serial.println("Attempting reconnect to WiFi Network: " + String(ssid));
+        while (WiFi.status() != WL_CONNECTED) {
+            i = i + 1;
+            delay(1000);
+                if (i >= 15) {
+                re_join_network_if_needed();
+            }
+        }
+        Serial.println("Reconnected to WiFi Network: " + String(ssid));
+        Serial.println(WiFi.localIP());
+    }
+}
