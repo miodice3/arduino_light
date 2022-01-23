@@ -15,9 +15,9 @@
 void join_wifi_network(){
     WiFi.mode(WIFI_STA);
     WiFi.begin(ssid, pass);
-    Serial.println("Connecting to WiFi Network: " + String(ssid));
+    Serial.print("Connecting to WiFi Network: " + String(ssid));
     while (WiFi.status() != WL_CONNECTED) {
-      Serial.println('.');
+      Serial.print('.');
       delay(1000);
     }
     Serial.println(WiFi.localIP());
@@ -25,7 +25,6 @@ void join_wifi_network(){
 
 void re_join_network_if_needed(){
     Serial.println("re_join_network_if_needed");
-    int c = 0;
     if (WiFi.status() != WL_CONNECTED) {
         Serial.println("within if block meaning connection to network failed");
         int i = 0;
